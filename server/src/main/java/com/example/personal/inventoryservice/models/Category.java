@@ -16,13 +16,16 @@ public class Category {
     private Long id;
     @Column(name = "name")
     private String name;
+    @Column(name = "type")
+    private CategoryType type;
     @JsonBackReference
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @OneToMany(mappedBy = "category")
     private List<Item> items;
 
-    public Category(String name) {
+    public Category(String name, CategoryType type) {
         this.name = name;
+        this.type = type;
         this.items = new ArrayList<>();
     }
     public Category(){
@@ -57,5 +60,13 @@ public class Category {
     }
     public void removeItem(Item item){
         this.items.remove(item);
+    }
+
+    public CategoryType getType() {
+        return type;
+    }
+
+    public void setType(CategoryType type) {
+        this.type = type;
     }
 }

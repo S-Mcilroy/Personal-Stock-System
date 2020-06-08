@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/foodItems")
+@RequestMapping(value = "/items")
 public class ItemController {
 
     @Autowired
